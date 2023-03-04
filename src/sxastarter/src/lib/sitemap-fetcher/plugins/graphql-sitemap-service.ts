@@ -11,7 +11,7 @@ class GraphqlSitemapServicePlugin implements SitemapFetcherPlugin {
     this._graphqlSitemapService = new GraphQLSitemapService({
       endpoint: config.graphQLEndpoint,
       apiKey: config.sitecoreApiKey,
-      siteName: config.jssAppName,
+      siteName: config.jssAppName,      
     });
   }
 
