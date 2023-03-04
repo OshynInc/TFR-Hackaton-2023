@@ -24,6 +24,7 @@ const CdpPageView = (): JSX.Element => {
    */
   const createPageView = async (page: string, language: string, pageVariantId: string) => {
     const pointOfSale = PosResolver.resolve(language);
+    console.log(pointOfSale);
     const engage = await init({
       clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
       targetURL: process.env.NEXT_PUBLIC_CDP_TARGET_URL || '',
@@ -41,7 +42,6 @@ const CdpPageView = (): JSX.Element => {
       language,
     });
 
-    console.log(pointOfSale, pageVariantId, page);
   };
 
   /**
