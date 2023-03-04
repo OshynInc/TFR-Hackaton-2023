@@ -40,6 +40,8 @@ const CdpPageView = (): JSX.Element => {
       pageVariantId,
       language,
     });
+
+    console.log(pointOfSale, pageVariantId, page);
   };
 
   /**
