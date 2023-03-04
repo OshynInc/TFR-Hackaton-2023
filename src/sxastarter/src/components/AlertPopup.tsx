@@ -9,6 +9,7 @@ import {
 interface Fields {
   AlertTitle: Field<string>;
   AlertContent: Field<string>;
+  AlertDismiss: Field<string>;
 }
 
 // Define the props for the component
@@ -52,6 +53,9 @@ export const AlertPopup = (props: AlertPopupProps): JSX.Element => {
             className='alert-content'
             field={props.fields.AlertContent}
           />
+          <button className='dismiss-button'>
+            <>{props.fields.AlertDismiss}</>
+          </button>
         </div>
       </div>
     );
