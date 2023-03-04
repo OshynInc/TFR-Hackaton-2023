@@ -52,7 +52,7 @@ const ComponentContent = (props: ComponentContentProps) => {
   return (
     <div className={`component title ${props.styles}`} id={id ? id : undefined}>
       <div className="component-content">
-<>        <div className="field-title">{props.children}</div><div><p>TFRS</p></div></>
+        <div className="field-title">{props.children}</div><div><p>TFRS</p></div>
       </div>
     </div>
   );
