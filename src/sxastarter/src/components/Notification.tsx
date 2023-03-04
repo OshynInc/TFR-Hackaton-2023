@@ -26,14 +26,19 @@ export const Notification = (props: NotificationProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext();
   const { Header, Message, CTA } = props.fields;
 
+  const { fields } = props;
+
+  // Access the URL of the LinkField object using the `href` and `value` property
+  const url = fields.CTA?.value?.href;
+  const value = fields.CTA?.value?.text;
+
   // Determine whether the Notification should be displayed based on its visibility settings.
   const isVisible =
     sitecoreContext?.pageState === 'normal' &&
     props.params.Visibility?.toLowerCase() === 'visible';
 
   // Generate the CTA link element if the field data is available.
-  const CtaLink = () =>
-    CTA?.value && CTA?.url ? <a href={CTA.url}>{CTA.value}</a> : <></>;
+  const CtaLink = () => (CTA?.value && url ? <a href={url}>{value}</a> : <></>);
 
   // Generate the Notification header element if the field data is available.
   const HeaderElement = () =>
