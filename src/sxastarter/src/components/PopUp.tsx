@@ -1,4 +1,4 @@
-import { Text, Field, RichText } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text, Field } from '@sitecore-jss/sitecore-jss-nextjs';
 
 type PopUpProps = {
   fields: {
@@ -11,7 +11,7 @@ const PopUp = (props: PopUpProps): JSX.Element => (
 	
   <div>
     Pop Up
-	
+	<Text field={props.fields.Header} />
   </div>
 );
 
