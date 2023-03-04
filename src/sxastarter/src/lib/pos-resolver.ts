@@ -10,6 +10,7 @@ export class PosResolver {
       // POS can be multi-valued (one entry per locale) or single valued so we parse it
       // POS must be valid in order to save events (domain name might be taken but it must be defined in CDP settings)
       const parsedPos = PosResolver.parseEnvValue(process.env.NEXT_PUBLIC_CDP_POINTOFSALE);
+      console.log('POS', process.env.NEXT_PUBLIC_CDP_POINTOFSALE);
       if (typeof parsedPos == 'string') return parsedPos;
       else return parsedPos[locale];
     } catch (error) {
