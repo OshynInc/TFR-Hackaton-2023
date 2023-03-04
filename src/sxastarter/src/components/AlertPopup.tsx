@@ -1,10 +1,14 @@
 import React from 'react';
-import { Text, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  Text,
+  useSitecoreContext,
+  TextField,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 
 // Define the interface for the fields that will be passed as props
 interface Fields {
-  AlertTitle: string;
-  AlertContent: string;
+  AlertTitle: TextField;
+  AlertContent: TextField;
 }
 
 // Define the props for the component
