@@ -66,6 +66,8 @@ const CdpPageView = (): JSX.Element => {
     createPageView(route.name, language, pageVariantId);
   }, [pageState, route, variantId]);
 
+  console.log(pageState, route, variantId);
+
   return <></>;
 };
 
