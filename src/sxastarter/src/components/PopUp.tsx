@@ -11,7 +11,7 @@ const PopUp = (props: PopUpProps): JSX.Element => (
 	
   <div>
     Pop Up
-	<Text field={props.fields.Header} />
+	
   </div>
 );
 
