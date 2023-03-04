@@ -14,6 +14,7 @@ export class DictionaryServiceFactory {
           apiKey: config.sitecoreApiKey,
           siteName: config.jssAppName,
           jssAppTemplateId: '{9ED66404-64C9-4122-90E1-869CB3CEA566}',
+          rootItemId: '{1E9FE46C-AC60-4E02-8FAE-82D12FD901A8}',
           /*
             The Dictionary Service needs a root item ID in order to fetch dictionary phrases for the current
             app. If your Sitecore instance only has 1 JSS App, you can specify the root item ID here;
