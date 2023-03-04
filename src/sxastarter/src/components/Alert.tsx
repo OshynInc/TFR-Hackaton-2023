@@ -1,43 +1,64 @@
 import React from 'react';
 import { Text, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 
+// Define the interface for the fields that will be passed as props
 interface Fields {
   AlertTitle: string;
-  AlertMessage: string;
+  AlertContent: string;
 }
 
+// Define the props for the component
 type AlertPopupProps = {
+  params: { [key: string]: string };
   fields: Fields;
 };
 
+// Define the AlertPopup component
 export const AlertPopup = (props: AlertPopupProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext();
 
+  // If there are fields passed as props, render the AlertPopup component
   if (props.fields) {
-    const { AlertTitle, AlertMessage } = props.fields;
+    const id = props.params.RenderingIdentifier;
 
     return (
-      <div className='alert-popup'>
-        <div className='alert-popup-content'>
-          <div className='alert-popup-header'>
-            <Text tag='h2' className='alert-popup-title' field={AlertTitle} />
-          </div>
-          <div className='alert-popup-body'>
+      <div
+        className={`component alert-popup ${props.params.styles}`}
+        id={id ? id : undefined}
+      >
+        <div className='component-content'>
+          <div className='alert-header'>
             <Text
-              tag='p'
-              className='alert-popup-message'
-              field={AlertMessage}
+              tag='h2'
+              className='alert-title'
+              field={props.fields.AlertTitle}
             />
+            {/* Render the close button only if the page is being edited */}
+            {sitecoreContext.pageEditing && (
+              <button
+                className='close-button'
+                onClick={() => alert('Close button clicked')}
+              >
+                X
+              </button>
+            )}
           </div>
+          <Text
+            tag='p'
+            className='alert-content'
+            field={props.fields.AlertContent}
+          />
         </div>
-        {sitecoreContext.pageEditing ? (
-          <div className='alert-popup-edit-hint'>
-            Please fill out the Alert Title and Alert Message fields.
-          </div>
-        ) : null}
       </div>
     );
   }
 
-  return null;
+  // If there are no fields passed as props, render a default empty state
+  return (
+    <div className={`component alert-popup ${props.params.styles}`.trimEnd()}>
+      <div className='component-content'>
+        <span className='is-empty-hint'>Alert Popup</span>
+      </div>
+    </div>
+  );
 };
